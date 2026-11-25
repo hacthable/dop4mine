@@ -4,6 +4,7 @@ import { hostname } from "node:os";
 import { server as wisp, logging } from "@mercuryworkshop/wisp-js/server";
 import Fastify from "fastify";
 import fastifyStatic from "@fastify/static";
+import { blocklist } from "./blocklist.js";
 
 import { scramjetPath } from "@mercuryworkshop/scramjet/path";
 import { libcurlPath } from "@mercuryworkshop/libcurl-transport";
@@ -16,8 +17,15 @@ const publicPath = fileURLToPath(new URL("../public/", import.meta.url));
 logging.set_level(logging.NONE);
 Object.assign(wisp.options, {
 	allow_udp_streams: false,
-	hostname_blacklist: [/example\.com/],
+	// Layer 1: Cloudflare's family DNS blocks known adult and malware sites.
+	// dns_method must be "resolve", otherwise wisp ignores dns_servers and uses the normal DNS.
+	dns_method: "resolve",
 	dns_servers: ["1.1.1.3", "1.0.0.3"],
+	dns_result_order: "ipv4first",
+	// Layer 2: Dopamine's own list (src/blocklist.js), for what the DNS filter misses.
+	hostname_blacklist: blocklist,
+	// Typing a raw IP address would skip the DNS filter, so only named sites are allowed.
+	allow_direct_ip: false,
 });
 
 const fastify = Fastify({
