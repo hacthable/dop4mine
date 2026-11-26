@@ -68,6 +68,26 @@ Then open http://localhost:8080. With Docker instead: `docker compose up -d`.
 
 On CodePen, from a file on disk, or at any address ending in `?demo`, the homepage runs without the server. It shows a "Demo mode" notice and doesn't open sites.
 
+## Add Dopamine to any page with one line
+
+`public/inject.js` puts a floating **Dopamine** button on any page. Clicking it opens Dopamine over the page.
+
+Load it from your Dopamine server (it finds its own address):
+
+```html
+<script src="https://YOUR-SITE.onrender.com/inject.js"></script>
+```
+
+Or load it from GitHub through jsDelivr (add your address with `data-url`):
+
+```html
+<script src="https://cdn.jsdelivr.net/gh/hacthable/dop4mine@main/public/inject.js" data-url="https://YOUR-SITE.onrender.com"></script>
+```
+
+Options you can add to the tag: `data-open="true"` opens Dopamine right away, and `data-button="false"` hides the button (Alt+D still opens it). Esc closes it.
+
+jsDelivr can take up to 12 hours to pick up changes to `inject.js`. The server version updates as soon as Render redeploys.
+
 ## Embed it in another site
 
 Paste this into any website builder that accepts HTML, using your own address:

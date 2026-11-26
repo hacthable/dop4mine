@@ -34,6 +34,11 @@ const fastify = Fastify({
 			.on("request", (req, res) => {
 				res.setHeader("Cross-Origin-Opener-Policy", "same-origin");
 				res.setHeader("Cross-Origin-Embedder-Policy", "require-corp");
+				// the launcher script is meant to be loaded by other sites
+				if (req.url.split("?")[0] === "/inject.js") {
+					res.setHeader("Cross-Origin-Resource-Policy", "cross-origin");
+					res.setHeader("Access-Control-Allow-Origin", "*");
+				}
 				handler(req, res);
 			})
 			.on("upgrade", (req, socket, head) => {
