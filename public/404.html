@@ -3,39 +3,43 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Page not found/Error 404 | Dopamine</title>
-<meta name="theme-color" content="#020308">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%2305070f'/%3E%3Ccircle cx='16' cy='16' r='4' fill='%235aa2ff'/%3E%3C/svg%3E">
+<title>Page not found | Dopamine</title>
+<meta name="theme-color" content="#07040d">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0' stop-color='%23ff4f9a'/%3E%3Cstop offset='1' stop-color='%238b5cff'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect width='32' height='32' rx='9' fill='%2307040d'/%3E%3Cpath d='M16 6l8.7 5v10L16 26l-8.7-5V11z' fill='none' stroke='url(%23g)' stroke-width='2.6' stroke-linejoin='round'/%3E%3Ccircle cx='16' cy='16' r='3.8' fill='none' stroke='url(%23g)' stroke-width='2.2'/%3E%3C/svg%3E">
 <style>
-:root { --void: #020308; --edge: #1b2130; --steel: #6b7488; --ink: #d5dcec; --blue: #5aa2ff; }
+:root { --void: #07040d; --panel: #120c1d; --edge: #2a1f3d; --steel: #9186a8; --ink: #f3eeff; --acc: #ff4f9a; --acc2: #8b5cff;
+  --grad: linear-gradient(120deg, var(--acc), var(--acc2)); }
 * { box-sizing: border-box; margin: 0; }
 html, body { height: 100%; background: var(--void); color: var(--ink); overflow: hidden;
   font: 16px/1.5 system-ui, -apple-system, "Segoe UI", Roboto, sans-serif; }
-canvas { position: fixed; inset: 0; width: 100%; height: 100%; }
-main { position: relative; z-index: 1; height: 100%; display: grid; place-items: center; padding: 1.5rem; text-align: center; }
-.code { font-size: clamp(5rem, 24vw, 11rem); font-weight: 200; letter-spacing: .12em; padding-left: .12em; line-height: 1;
-  text-shadow: 0 0 60px rgba(90,162,255,.35); }
-.code b { color: var(--blue); font-weight: 300; }
-h1 { font-size: 1.3rem; font-weight: 500; margin: 1rem 0 .4rem; }
+body::before { content: ""; position: fixed; inset: -20vmax; pointer-events: none;
+  background: radial-gradient(40vmax 30vmax at 25% 20%, rgba(255,79,154,.16), transparent 70%),
+              radial-gradient(40vmax 30vmax at 80% 85%, rgba(139,92,255,.14), transparent 70%); }
+main { position: relative; height: 100%; display: grid; place-items: center; padding: 1.5rem; text-align: center; }
+.mol { width: 5.5rem; height: 5.5rem; margin: 0 auto 1.2rem; animation: wob 3s ease-in-out infinite; }
+@keyframes wob { 50% { transform: rotate(-8deg) translateY(-4px); } }
+.code { font-size: clamp(4.5rem, 20vw, 8rem); font-weight: 800; letter-spacing: -.03em; line-height: 1;
+  background: var(--grad); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+h1 { font-size: 1.35rem; font-weight: 600; margin: 1rem 0 .4rem; }
 p { color: var(--steel); max-width: 26rem; margin: 0 auto; }
-.row { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; margin-top: 1.6rem; }
-a.btn { display: inline-block; text-decoration: none; border-radius: 999px; padding: .65rem 1.4rem; font-size: .95rem;
-  border: 1px solid var(--edge); color: var(--ink); background: rgba(11,14,23,.82); transition: border-color .2s; }
-a.btn:hover { border-color: #2a4f86; }
-a.btn.main { background: var(--blue); color: #03101f; border-color: var(--blue); }
-a.btn.main:hover { background: #7cb5ff; }
+.row { display: flex; flex-wrap: wrap; justify-content: center; gap: .7rem; margin-top: 1.8rem; }
+a.btn { text-decoration: none; border-radius: .9rem; padding: .7rem 1.4rem; font-size: .95rem; color: var(--ink);
+  border: 1px solid var(--edge); background: var(--panel); }
+a.btn:hover { border-color: #3d2d58; }
+a.btn.main { background: var(--grad); border: 0; color: #fff; font-weight: 600; }
+@media (prefers-reduced-motion: reduce) { .mol { animation: none; } }
 </style>
 </head>
 <body>
-<canvas id="sky" aria-hidden="true"></canvas>
 <main>
   <div>
-    <div class="code">4<b>0</b>4</div>
-    <h1 id="t">Page not found/Error 404</h1>
-    <p id="d">That page does not exist on Dopamine. It may have been moved, or the address has a typo.</p>
+    <svg class="mol" viewBox="0 0 32 32" fill="none" aria-hidden="true"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#ff4f9a"/><stop offset="1" stop-color="#8b5cff"/></linearGradient></defs><path d="M16 5.5l9.1 5.25v10.5L16 26.5l-9.1-5.25v-10.5z" stroke="url(#g)" stroke-width="2.2" stroke-linejoin="round"/><circle cx="16" cy="16" r="4.2" stroke="url(#g)" stroke-width="1.8"/><path d="M25.1 10.75L29 8.5" stroke="url(#g)" stroke-width="2.2" stroke-linecap="round"/></svg>
+    <div class="code">404</div>
+    <h1 id="t">This page wandered off</h1>
+    <p id="d">That page does not exist on Dopamine. The address may have a typo, or the page was moved.</p>
     <div class="row">
       <a class="btn main" href="/">Back to Dopamine</a>
-      <a class="btn" href="https://docs.google.com/forms/d/e/1FAIpQLScupiUZuqQsngFai_QPQRWn06LpuZy3VGZOEyIUY0DAZ0qJxw/viewform" target="_blank" rel="noopener noreferrer">Report a problem</a>
+      <a class="btn" href="https://forms.gle/SKvxB19Re4Ur1WBZ6" target="_blank" rel="noopener noreferrer">Report a problem</a>
     </div>
   </div>
 </main>
@@ -47,26 +51,6 @@ a.btn.main:hover { background: #7cb5ff; }
 <script src="/engine.js"></script>
 <script>
 (function () {
-  var c = document.getElementById('sky'), g = c.getContext('2d'), stars = [], w, h;
-  var still = matchMedia('(prefers-reduced-motion: reduce)').matches;
-  function size() {
-    var dpr = Math.min(devicePixelRatio || 1, 2); w = innerWidth; h = innerHeight;
-    c.width = w * dpr; c.height = h * dpr; g.setTransform(dpr, 0, 0, dpr, 0, 0);
-    stars = [];
-    for (var i = 0, n = Math.round(w * h / 5200); i < n; i++)
-      stars.push({ x: Math.random() * w, y: Math.random() * h, r: Math.random() < .12 ? 1.6 : Math.random() * .9 + .5,
-        a: Math.random() * .35 + .65, s: Math.random() * 2 + .6, p: Math.random() * 6.28 });
-  }
-  function frame(t) {
-    g.clearRect(0, 0, w, h); g.fillStyle = '#fff';
-    for (var i = 0; i < stars.length; i++) {
-      var s = stars[i]; g.globalAlpha = s.a * (still ? 1 : .8 + .2 * Math.sin(t / 1000 * s.s + s.p));
-      g.beginPath(); g.arc(s.x, s.y, s.r, 0, 6.2832); g.fill();
-    }
-    requestAnimationFrame(frame);
-  }
-  addEventListener('resize', size); size(); requestAnimationFrame(frame);
-
   if (location.pathname.indexOf('/scramjet/') === 0) {
     document.getElementById('t').textContent = 'Reconnecting\u2026';
     document.getElementById('d').textContent = 'Getting the proxy ready. If this stays here, go back to Dopamine and open the site again.';

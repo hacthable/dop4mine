@@ -1,12 +1,12 @@
 {
   "name": "Dopamine",
   "short_name": "Dopamine",
-  "description": "Dopamine web proxy",
+  "description": "Open any website from one place.",
   "start_url": "/",
   "scope": "/",
   "display": "standalone",
-  "background_color": "#020308",
-  "theme_color": "#020308",
+  "background_color": "#07040d",
+  "theme_color": "#07040d",
   "icons": [
     {
       "src": "/icon-192.png",

@@ -1,12 +1,8 @@
-# TODO: needs to be updated for sj
-# services:
-#   ultraviolet:
-#     image: diffusehyperion/ultraviolet
-#     container_name: scramjet
-#     restart: unless-stopped
-#     ports:
-#       - "8080:8080"
-
-# networks:
-#   default:
-#     name: ultraviolet
+# Run Dopamine with Docker:  docker compose up -d   then open http://localhost:8080
+services:
+  dopamine:
+    build: .
+    container_name: dopamine
+    restart: unless-stopped
+    ports:
+      - "8080:8080"

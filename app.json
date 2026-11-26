@@ -1,7 +1,6 @@
 {
 	"name": "Dopamine",
-	"description": "Dopamine web proxy",
-	"repository": "https://github.com/.../Scramjet-Demo",
-	"logo": "https://raw.githubusercontent.com/MercuryWorkshop/scramjet/main/assets/scramjet.png",
-	"keywords": ["scramjet"]
+	"description": "Open any website from one place. A web proxy built on Scramjet-App.",
+	"repository": "https://github.com/hacthable/dop4mine",
+	"keywords": ["dopamine", "web proxy", "scramjet"]
 }
